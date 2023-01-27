@@ -10,54 +10,54 @@ public class MovieController {
     @Autowired
     MovieService service;
 
-    @PostMapping("/addMovie")
+    @PostMapping("/add_movie")
     public ResponseEntity<String> addMovie(@RequestBody() Movie movie) {
         service.addMovie(movie);
         return new ResponseEntity("Added success", HttpStatus.OK);
     }
 
-    @PostMapping("/addDirector")
+    @PostMapping("/add_director")
     public ResponseEntity<String> addDirector(@RequestBody() Director director) {
         service.addDirector(director);
         return new ResponseEntity("Success", HttpStatus.OK);
     }
 
-    @PutMapping("/addMovieDirectorPair")
+    @PutMapping("/add_movie_director_pair")
     public ResponseEntity<String> addMovieDirectorPair(@RequestBody() RequestDTO dto) {
         service.addpair(dto);
         return new ResponseEntity("success", HttpStatus.OK);
     }
 
-    @GetMapping("/getMovieByName")
+    @GetMapping("/get_movie_by_name")
     public ResponseEntity<Movie> getMovieByName(@RequestParam("name") String moviename) {
         Movie ans = service.getmovie(moviename);
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
-    @GetMapping("/getDirectorByName")
+    @GetMapping("/get_director_by_name")
     public ResponseEntity<Director> getDirectorByName(@RequestParam("name") String directorname) {
         Director ans = service.getdirector(directorname);
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
-    @GetMapping("/getMoviesByDirectorName")
+    @GetMapping("/get_movies_by_director_name")
     public ResponseEntity<List<String>> getMoviesByDirectorName(@RequestParam("name") String directorname) {
         List<String> ans = service.getList(directorname);
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
-    @GetMapping("/findAllMovies")
+    @GetMapping("/find_all_movies")
     public ResponseEntity<List<Movie>> findAllMovies() {
         List<Movie> ans = service.getmovies();
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
-    @GetMapping("/deleteDirectorByName")
+    @GetMapping("/delete_director_by_name")
     public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String directorname){
         service.deldirector(directorname);
         return new ResponseEntity("success",HttpStatus.OK);
     }
-    @GetMapping("/deleteAllDirectors")
+    @GetMapping("/delete_all_directors")
     public ResponseEntity<String> deleteAllDirectors(){
         service.deleteall();
         return new ResponseEntity("success",HttpStatus.OK);
