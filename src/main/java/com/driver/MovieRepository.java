@@ -19,6 +19,11 @@ public class MovieRepository {
         if(pairs.containsKey(dto.getDirectorname())){
             pairs.get(dto.getDirectorname()).add(movies.get(dto.getMoviename()));
         }
+        else{
+            List<Movie> arr = new ArrayList<>();
+            arr.add(movies.get(dto.getMoviename()));
+            pairs.put(dto.getDirectorname(),arr);
+        }
     }
     public Movie getmovie(String moviename){
         return movies.get(moviename);
