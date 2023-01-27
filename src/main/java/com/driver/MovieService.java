@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Functionality {
+public class MovieService {
     @Autowired
-    Database repository;
+    MovieRepository repository;
     public void addMovie(Movie movie){
         repository.addMovie(movie);
     }

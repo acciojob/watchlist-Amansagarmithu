@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MovieController {
     @Autowired
-    Functionality service;
+    MovieService service;
 
     @PostMapping("/addMovie")
     public ResponseEntity<String> addmovie(@RequestBody() Movie movie) {

@@ -3,7 +3,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 @Repository
-public class Database {
+public class MovieRepository {
 
     HashMap<String,Movie> movies = new HashMap<>();
     HashMap<String,Director> directors = new HashMap<>();
