@@ -11,54 +11,54 @@ public class MovieController {
     MovieService service;
 
     @PostMapping("/addMovie")
-    public ResponseEntity<String> addmovie(@RequestBody() Movie movie) {
+    public ResponseEntity<String> addMovie(@RequestBody() Movie movie) {
         service.addMovie(movie);
         return new ResponseEntity("Added success", HttpStatus.OK);
     }
 
     @PostMapping("/addDirector")
-    public ResponseEntity<String> adddirector(@RequestBody() Director director) {
+    public ResponseEntity<String> addDirector(@RequestBody() Director director) {
         service.addDirector(director);
         return new ResponseEntity("Success", HttpStatus.OK);
     }
 
     @PutMapping("/addMovieDirectorPair")
-    public ResponseEntity<String> addpair(@RequestBody() RequestDTO dto) {
+    public ResponseEntity<String> addMovieDirectorPair(@RequestBody() RequestDTO dto) {
         service.addpair(dto);
         return new ResponseEntity("success", HttpStatus.OK);
     }
 
     @GetMapping("/getMovieByName")
-    public ResponseEntity<Movie> getmovie(@RequestParam("name") String moviename) {
+    public ResponseEntity<Movie> getMovieByName(@RequestParam("name") String moviename) {
         Movie ans = service.getmovie(moviename);
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
     @GetMapping("/getDirectorByName")
-    public ResponseEntity<Director> getdirector(@RequestParam("name") String directorname) {
+    public ResponseEntity<Director> getDirectorByName(@RequestParam("name") String directorname) {
         Director ans = service.getdirector(directorname);
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
     @GetMapping("/getMoviesByDirectorName")
-    public ResponseEntity<List<String>> getlist(@RequestParam("name") String directorname) {
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@RequestParam("name") String directorname) {
         List<String> ans = service.getList(directorname);
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
     @GetMapping("/findAllMovies")
-    public ResponseEntity<List<Movie>> findallmovie() {
+    public ResponseEntity<List<Movie>> findAllMovies() {
         List<Movie> ans = service.getmovies();
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
     @GetMapping("/deleteDirectorByName")
-    public ResponseEntity<String> deldir(@RequestParam("name") String directorname){
+    public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String directorname){
         service.deldirector(directorname);
         return new ResponseEntity("success",HttpStatus.OK);
     }
     @GetMapping("/deleteAllDirectors")
-    public ResponseEntity<String> delall(){
+    public ResponseEntity<String> deleteAllDirectors(){
         service.deleteall();
         return new ResponseEntity("success",HttpStatus.OK);
     }
