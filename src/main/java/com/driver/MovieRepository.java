@@ -15,14 +15,14 @@ public class MovieRepository {
     public void addDirector(Director director){
         directors.put(director.getName(),director);
     }
-    public void addpair(RequestDTO dto){
-        if(pairs.containsKey(dto.getDirectorname())){
-            pairs.get(dto.getDirectorname()).add(movies.get(dto.getMoviename()));
+    public void addpair(String m,String d){
+        if(pairs.containsKey(d)){
+            pairs.get(d).add(movies.get(m));
         }
         else{
             List<Movie> arr = new ArrayList<>();
-            arr.add(movies.get(dto.getMoviename()));
-            pairs.put(dto.getDirectorname(),arr);
+            arr.add(movies.get(m));
+            pairs.put(d,arr);
         }
     }
     public Movie getmovie(String moviename){

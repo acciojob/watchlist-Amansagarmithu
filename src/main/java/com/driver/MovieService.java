@@ -13,8 +13,8 @@ public class MovieService {
     public void addDirector(Director director){
         repository.addDirector(director);
     }
-    public void addpair(RequestDTO dto){
-        repository.addpair(dto);
+    public void addpair(String movie,String director){
+        repository.addpair(movie,director);
     }
     public Movie getmovie(String moviename){
         return repository.getmovie(moviename);
