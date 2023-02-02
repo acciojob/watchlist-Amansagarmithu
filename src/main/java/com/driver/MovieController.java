@@ -27,7 +27,7 @@ public class MovieController {
 
     @PostMapping("/add-movie")
     public ResponseEntity<String> addMovie(@RequestBody Movie movie){
-        movieService.addMovie(movie);
+        movieService.addmovie(movie);
         return new ResponseEntity<>("New movie added successfully", HttpStatus.CREATED);
     }
 
@@ -39,31 +39,31 @@ public class MovieController {
 
     @PutMapping("/add-movie-director-pair")
     public ResponseEntity<String> addMovieDirectorPair(@RequestParam("movie") String movie, @RequestParam("director") String director){
-        movieService.addpair(movie, director);
+        movieService.directorMoviePair(movie, director);
         return new ResponseEntity<>("New movie-director pair added successfully", HttpStatus.CREATED);
     }
 
     @GetMapping("/get-movie-by-name/{name}")
     public ResponseEntity<Movie> getMovieByName(@PathVariable String name){
-        Movie movie = movieService.getmovie(name);
+        Movie movie = movieService.findMovies(name);
         return new ResponseEntity<>(movie, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-director-by-name/{name}")
     public ResponseEntity<Director> getDirectorByName(@PathVariable String name){
-        Director director = movieService.getdirector(name);
+        Director director = movieService.finddirector(name);
         return new ResponseEntity<>(director, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-movies-by-director-name/{director}")
     public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String director){
-        List<String> movies = movieService.getList(director);
+        List<String> movies = movieService.findMoviesFromDirector(director);
         return new ResponseEntity<>(movies, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all-movies")
     public ResponseEntity<List<String>> findAllMovies(){
-        List<String> movies = movieService.getmovies();
+        List<String> movies = movieService.findAllMovies();
         return new ResponseEntity<>(movies, HttpStatus.CREATED);
     }
 
