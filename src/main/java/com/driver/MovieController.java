@@ -52,12 +52,12 @@ public class MovieController {
         return new ResponseEntity(ans, HttpStatus.OK);
     }
 
-    @GetMapping("/delete_director_by_name")
+    @DeleteMapping("/delete_director_by_name")
     public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String directorname){
         service.deldirector(directorname);
         return new ResponseEntity("success",HttpStatus.OK);
     }
-    @GetMapping("/delete_all_directors")
+    @DeleteMapping("/delete_all_directors")
     public ResponseEntity<String> deleteAllDirectors(){
         service.deleteall();
         return new ResponseEntity("success",HttpStatus.OK);
