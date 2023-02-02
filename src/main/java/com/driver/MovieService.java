@@ -25,13 +25,13 @@ public class MovieService {
     public List<String> getList(String directorname){
         return repository.getlist(directorname);
     }
-    public List<Movie> getmovies(){
+    public List<String> getmovies(){
         return repository.getmovies();
     }
-    public void deldirector(String directorname){
+    public void deleteDirector(String directorname){
         repository.deldirector(directorname);
     }
-    public void deleteall(){
+    public void deleteAllDirectors(){
         repository.deleteall();
     }
 }

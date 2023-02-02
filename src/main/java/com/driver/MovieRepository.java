@@ -38,10 +38,10 @@ public class MovieRepository {
         }
         return ans;
     }
-    public List<Movie> getmovies(){
-        List<Movie> ans = new ArrayList<>();
+    public List<String> getmovies(){
+        List<String> ans = new ArrayList<>();
         for(String x : movies.keySet()){
-            ans.add(movies.get(x));
+            ans.add(x);
         }
         return ans;
     }
